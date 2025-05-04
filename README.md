@@ -75,17 +75,3 @@ The assignment is divided into 5 separate tasks, each implemented in its own Pyt
 4. Output files:
    - Results for each task will be saved in the `output` directory
    - Each task creates its own subdirectory (e.g., `output/task1_output`, `output/task2_output`, etc.)
-
-## Notes
-
-- The code creates an `output` directory if it doesn't exist
-- Each task builds on the previous task but can be run independently (they reload the data)
-- For large datasets, you may need to adjust Spark's memory settings
-
-## Performance
-
-When run on the sample dataset, the model achieves:
-- Accuracy: Approximately 0.89
-- F1 Score: Approximately 0.88
-
-These metrics may vary slightly due to the random splitting of data for training and testing.
