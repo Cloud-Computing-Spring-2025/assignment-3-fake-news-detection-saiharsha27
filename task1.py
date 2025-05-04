@@ -1,3 +1,4 @@
+import os
 from pyspark.sql import SparkSession
 
 def main():
@@ -36,8 +37,12 @@ def main():
     result = spark.sql("SELECT * FROM news_data LIMIT 5")
     result.show(truncate=False)
 
-    # Write DataFrame to CSV
-    df.write.csv("output/task1_output", header=True, mode="overwrite")
+    # Make sure directory exists
+    os.makedirs("output", exist_ok=True)
+    
+    # Write only a sample (e.g., 20 rows) to CSV to keep the output manageable
+    df_sample = df.limit(20)
+    df_sample.write.csv("output/task1_output", header=True, mode="overwrite")
 
     # Stop Spark Session
     spark.stop()
